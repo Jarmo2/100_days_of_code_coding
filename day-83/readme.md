@@ -17,11 +17,12 @@ _Build a text-based version of the Tic Tac Toe game._
 #### 2. Most Used Languages
 ![The top programming languages used by me](https://github-readme-stats.vercel.app/api/top-langs/?username=Jarmo2&theme=blue-green)
 
-##### 4. Random Joke Generator
+##### 3. Random Joke Generator
 ![Jokes Card](https://readme-jokes.vercel.app/api)
 
 ##### 4. Profile View Counter
 ![Profile views](https://komarev.com/ghpvc/?username=Jarmo2)
+
 
 ### Visuals
 ![img.png](screenshot.png)
