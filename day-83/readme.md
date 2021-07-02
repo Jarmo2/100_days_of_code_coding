@@ -4,7 +4,7 @@ I followed this Udemy Course: https://www.udemy.com/course/100-days-of-code/
 
 This course finalises with 20 challenges covering all aspects which were introduced during this course.
 
-This project covers the challenge from day 83 (first challenge). One of those challenges was building my own website:
+This project covers the challenge from day 83 (third challenge). One of those challenges was building my own website:
 https://jarmo2.github.io/ 
 On this website you can find all the projects I have built inspired by _100 days of code_.
 The instructions given for this project were as follows:
