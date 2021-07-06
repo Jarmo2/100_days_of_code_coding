@@ -1,0 +1,54 @@
+{% include "header.html" %}
+
+  <!-- Page Header -->
+  <header class="masthead" style="background-image: url('https://images.unsplash.com/photo-1620989775958-d13edbdd72af?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="site-heading">
+            <h1>Jarmo's coliving experience</h1>
+            <span class="subheading">A collection of my colivings in Spain.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        {% for coliving in all_colivings %}
+        <div class="post-preview">
+          <a href="{{ url_for('show_coliving', coliving_id=coliving.id) }}">
+            <h2 class="post-title">
+              {{coliving.title}}
+            </h2>
+            <h3 class="post-subtitle">
+              {{coliving.description_short}}
+            </h3>
+          </a>
+          <p class="post-meta">Posted by
+            {{coliving.author.name}}
+            on {{coliving.date}}
+            {% if current_user.id == 1: %}
+            <a href="{{url_for('delete_coliving', coliving_id=coliving.id) }}">✘</a>
+            {% endif %}
+          </p>
+        </div>
+        {% endfor %}
+
+
+        <!-- New Post -->
+        {% if current_user.id == 1: %}
+        <div class="clearfix">
+          <a class="btn btn-primary float-right" href="{{url_for('add_new_coliving')}}">Create New Coliving</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <hr>
+
+{% include "footer.html" %}

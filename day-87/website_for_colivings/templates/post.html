@@ -1,0 +1,77 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+<!-- Page Header -->
+<header class="masthead" style="background-image: url('{{coliving.img_url}}')">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="post-heading">
+                    <h1>{{coliving.title}}</h1>
+                    <h2 class="subheading">{{coliving.description_short}}</h2>
+                    <span class="meta">Posted by
+              {{coliving.author.name}}
+              on {{coliving.date}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <h3>Introduction</h3>
+                <p>{{ coliving.description_long|safe }}</p>
+                <li>
+                    <h4>Can you feel urban vibes there?</h4>
+                    <p>{{ coliving.urbanlife|safe }}</p>
+                </li>
+                <li>
+                    <h4>Are there several places within the co-living where you can work and chill?</h4>
+                    <p>{{ coliving.changelocations|safe }}</p>
+                </li>
+                <li>
+                    <h4>Where is the location on OpenStreetMap?</h4>
+                    <p>{{ coliving.location|safe }}<p>
+                </li>
+                <li>
+                    <h4>What about the quality of the WIFI? Is it strong?</h4>
+                    <p>{{ coliving.wifi|safe }}<p>
+                </li>
+                <li>
+                    <h4>Are there sockets to charge your stuff all around?</h4>
+                    <p>{{ coliving.sockets|safe }}</p>
+                </li>
+                <li>
+                    <h4>Is it a social place?</h4>
+                    <p>{{ coliving.vibe|safe }}</p>
+                </li>
+
+                <hr>
+                {% if current_user.id == 1 %}
+                <div class="clearfix">
+                    <a class="btn btn-primary float-right" href="{{url_for('edit_coliving', coliving_id=coliving.id)}}">Edit
+                        Coliving</a>
+                </div>
+                {% endif %}
+
+
+                <!--           Comments Area -->
+                <!-- to be added later -->
+
+            </div>
+        </div>
+    </div>
+</article>
+
+<hr>
+{% include "footer.html" %}
+{% endblock %}
