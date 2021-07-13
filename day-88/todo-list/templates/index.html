@@ -1,0 +1,42 @@
+{% extends 'bootstrap/base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+{% include "header.html" %}
+
+
+<div class="row">
+  <div class="col-md-4">
+      <div id="myDIV" class="header mt-5">
+    <h2 style="margin:5px">Tasks</h2>
+        </div>
+    <ul id="myUL">
+        {{ wtf.quick_form(form, novalidate=True, button_map={"submit": "primary"}, form_type="horizontal") }}
+    </ul>
+      <ul id="myUL">
+        {{ wtf.quick_form(form_select, novalidate=True, button_map={"wip": "success", "change": "warning"}, form_type="horizontal") }}
+    </ul>
+    </div>
+
+  <div class="col-md-4">
+      <div id="myDIV" class="header mt-5">
+    <h2 style="margin:5px">Work in progress</h2>
+        </div>
+    <ul>{{ wtf.quick_form(wip_form, novalidate=True, button_map={"done": "success", "to_todo": "warning"}, form_type="horizontal") }}</ul>
+  </div>
+
+  <div class="col-md-4">
+          <div id="myDIV" class="header mt-5">
+    <h2 style="margin:5px">Done</h2>
+        </div>
+    {{ wtf.quick_form(done_form, novalidate=True, button_map={"wip": "warning", "delete": "danger"}, form_type="horizontal") }}</ul>
+  </div>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
