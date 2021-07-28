@@ -2,7 +2,11 @@ import time
 from turtle import Turtle, Screen
 import turtle_gui
 import numpy as np
+import score_board
+import config
 
+
+score = score_board.ScoreBoard()
 
 #screen
 screen = Screen()
@@ -45,7 +49,7 @@ for left, center, right in zip(left_pos, center_pos, right_pos):
 
 positions = list(np.linspace(-300, 300, 10))
 for pos in positions:
-    for y_pos in list(np.linspace(270, 150, 3)):
+    for y_pos in list(np.linspace(270, 150, 4)):
         game.evil_ship(pos, y_pos)
 
 
@@ -56,17 +60,31 @@ game_is_on = True
 def start_a_fire():
     game.my_weapon(game.spaceship.xcor(), game.spaceship.ycor(), 30)
 
+def opponent_fire():
+    before = time.perf_counter()
+    if before %3 <= 1:
+        game.evil_weapon()
+
+
 # fire-test
 screen.onkey(start_a_fire, 'Up')
 
-while game_is_on:
-    time.sleep(0.1)
+
+while config.game_is_on:
+    time.sleep(0.001)
+    score.reduce_lives(game.hit_by_evil())
+    game.check_out_of_game()
+    game.weapons_collide()
     game.check_direction()
     game.move_weapon()
-    game.check_hit()
+    score.increase_score(int(game.check_hit()))
     game.check_collision()
-    game.evil_weapon()
+    game.check_collision_evil()
     game.move_evil_weapon()
+    opponent_fire()
+    end = game.check_the_end()
+    score.update_scoreboard(ongoing=end[0], victory=end[1])
+
 
 screen.exitonclick()
 

@@ -10,28 +10,17 @@ On this website you can find all the projects I have built inspired by _100 days
 The instructions given for this project were as follows:
 _Build the classic arcade game where you shoot down alien ships._
 
-### continue from here
+All you need to start this program is to run main.py.
 
-My program has two for loops.
+For me the most difficult part was to figure out how to delay the fire of the evil ships without delaying the entire game.
+I used this function to delay:
+_def opponent_fire():
+    before = time.perf_counter()
+    if before %3 <= 1:
+        game.evil_weapon()_
 
-1) While Loop
+In addition, I used a config module to let the main.py and score_board.py exchange the game_is_on variable.
 
-This while loop makes Python listen to keyboard commands (with the help of the keyboard library).
-Please open the [game][ttps://elgoog.im/t-rex/] in a separate browser.
-   ![img.png](startscreen.png)
-Please do not click activate bot as it's not my bot.
-Please start the Python code in your IDE.
-Please go back to the browser and start the game. Please use tab to start the game and NOT space.
-Once the first obstacle is near to the dinosaur please press space.
-As from there, the bot takes over and recognises the next obstacles.
-
-Once you press space a screenshot is taken and the program is scanning the screenshot for the position of the obstacle.
-
-2) While loop   
-
-The position of the obstacle is then passed to the second while loop. 
-Pyautogui is scanning the position of the first obstacle for other items with the same color. If a grey item is at this position,
-it presses space automatically.
 
 ### Badges
 
@@ -49,33 +38,29 @@ it presses space automatically.
 
 ### Visuals
 
-Screenshot which is scanned by opencv
-![img.png](screenshot for opencv.png)
+Game action
+
+![screenshot.png](screenshot.png)
 
 
 
 ### Installation
 
 For this simple program you need Python and the following libraries:
-- Python version less than 3.9 as pyautogui is currently not optimised for the most recent version
-- pyautogui
-- PIL
-- openCV
+- Turtle
 - numpy
-- keyboard
 
 
 ### Usage
 
-This program shows a pretty easy way how to automate a task.
-It's not perfect. Sometimes the OSError in pyautogui occurs.
-https://stackoverflow.com/questions/59146513/pyautogui-and-pyscreeze-crash-with-windll-user32-releasedc-failed
-Please just try again.
+This program help me to understand object-oriented programming better.
+There is a bug which makes the middle barriers not disappear.
+![bug.png](bug.png)
 
 ### Support
 
 If you need help or if you have a comment please feel free to leave a comment on Github.
-
+At the moment, this program needs quite a lot of computational power. I will try to make a more efficient version with updates.
 
 ### License
 
