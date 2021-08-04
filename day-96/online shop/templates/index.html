@@ -1,0 +1,73 @@
+{% include "header.html" %}
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Street Dog</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">€10<small class="text-muted fw-light">/session</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Max. 10 dogs</li>
+              <li>1 trainer waiting on the shore</li>
+              <li>No support</li>
+              <li>No insurance</li>
+            </ul>
+            <button onclick="window.location.href='{{ url_for('show_date', plan='cheap') }}'" type="button" class="w-100 btn btn-lg btn-outline-primary">Reserve now.</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">Guard Dog</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">€20<small class="text-muted fw-light">/session</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>max. 5 dogs</li>
+              <li>1 trainer in the ocean</li>
+              <li>Support.</li>
+              <li>Insurance</li>
+            </ul>
+            <button onclick="window.location.href='{{ url_for('show_date', plan='medium') }}'" type="button" class="w-100 btn btn-lg btn-primary">Get started</button>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-header py-3 text-white bg-primary border-primary">
+            <h4 class="my-0 fw-normal">Lap Dog</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">€60<small class="text-muted fw-light">/session</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>max. 2 dogs</li>
+              <li>1 trainer and trained dog</li>
+              <li>Support and fancy board</li>
+              <li>Private insurance</li>
+            </ul>
+            <button onclick="window.location.href='{{ url_for('show_date', plan='expensive') }}'" type="button" class="w-100 btn btn-lg btn-primary">Reserve here</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="pt-4 my-md-5 pt-md-5 border-top">
+      <div>
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">About us</a></li>
+          <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+
+  </body>
+</html>
